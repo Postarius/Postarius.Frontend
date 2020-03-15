@@ -1,0 +1,11 @@
+ul li a, h2, span, button {
+    color: white;
+}
+
+#sidebarCollapse:focus {
+    outline: none;
+}
+
+ul li a:hover {
+    color: antiquewhite;
+}

@@ -1,0 +1,39 @@
+<div class="row mt-5 mr-0 w-100">
+    <div class="col-4">
+        <img src="{{userProfileData.avatarUrl}}" alt="avatar" style="max-height: 400px; max-width: 300px">
+    </div>
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header"><h4>User Profile</h4></div>
+            <div class="card-body">
+                <p>{{userProfileData.login}}</p>
+                <p>{{userProfileData.displayName}}</p>
+                <p>{{userProfileData.email}}</p>
+            </div>
+            <div *ngIf="!isMyProfile" class="card-footer">
+                <button
+                    class="btn {{alreadyFollowing ? 'disabled' : ''}}"
+                    style="background-color: lawngreen"
+                    [disabled]="alreadyFollowing"
+                    (click)="followUser()"
+                >
+                    {{alreadyFollowing ? 'Already following' : 'Follow'}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>Followers:</h3>
+<div class="row">
+    <div *ngFor="let follower of userProfileData.followers" class="card">
+        <img src="{{follower.avatarUrl}}" alt="followerAvatar">
+        <div class="card-body">
+            <h5 class="card-title">{{follower.displayName}}</h5>
+            <p class="card-text">
+                Email: {{follower.email}}
+            </p>
+            <button class="btn btn-primary">Go to Profile</button>
+        </div>
+    </div>
+</div>
+<button class="btn btn-primary ml-auto" routerLink="/{{routes.searchUsers}}">Back to List</button>

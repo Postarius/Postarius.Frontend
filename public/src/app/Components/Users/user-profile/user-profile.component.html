@@ -1,0 +1,4 @@
+<app-loading [loading]="loading"></app-loading>
+<div *ngIf="!loading">
+    <app-user-profile-template [userProfileData]="userProfileData"></app-user-profile-template>
+</div>

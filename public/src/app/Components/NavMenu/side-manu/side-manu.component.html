@@ -1,0 +1,16 @@
+<ul class="nav flex-column bg-dark" style="z-index: 200; width: 200px; height: 100vh">
+    <h2 class="d-inline-block nav-link" routerLink="{{routes.home}}" (click)="toggleSidebar()">a</h2>
+    <li class="nav-item">
+        <a href="javascript:void(0)" routerLink="/{{routes.searchUsers}}" class="nav-link" (click)="toggleSidebar()">Search Users</a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:void(0)" routerLink="/{{routes.myPosts}}" class="nav-link" (click)="toggleSidebar()">My Posts</a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:void(0)" routerLink="/{{routes.followers}}" class="nav-link" (click)="toggleSidebar()">Followers</a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:void(0)" routerLink="/{{routes.uploadImage}}" class="nav-link" (click)="toggleSidebar()">Quick Image Upload</a>
+    </li>
+    <button id="sidebarCollapse" class="btn mt-auto" (click)="toggleSidebar()">Collapse</button>
+</ul>

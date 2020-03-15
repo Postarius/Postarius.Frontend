@@ -1,0 +1,22 @@
+<input type="file" class="form-control w-50 d-inline py-0" (change)="onImagesSelected($event)" multiple>
+<button class="btn btn-primary form-control w-25 d-inline py-0" (click)="uploadImages()">Upload Images</button>
+<button class="btn btn-danger form-control w-25 d-inline py-0" (click)="removeAllImages()">Remove All</button>
+<div *ngIf="anyNotUploadedImage" class="badge-danger p-2 rounded">Some images are not uploaded.</div>
+<div *ngIf="images.length">
+    <div *ngFor="let image of images" class="d-inline-block">
+        <img src="{{image.url}}" alt="image" style="max-height: 200px">
+    </div>
+</div>
+<div *ngIf="imageUrls && imageUrls.length">
+    <div *ngFor="let imageInfo of imageUrls">
+        <section>
+            <span>Raw: <a href="{{imageInfo.rawUrl}}">Link</a></span>
+        </section>
+        <section>
+            <span>150x150: <a href="{{imageInfo.cropped150x150Url}}">Link</a></span>
+        </section>
+        <section>
+            <span>300x400: <a href="{{imageInfo.cropped300x400Url}}">Link</a></span>
+        </section>
+    </div>
+</div>

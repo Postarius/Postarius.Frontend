@@ -1,0 +1,15 @@
+<app-loading [loading]="loading"></app-loading>
+<div *ngIf="!loading">
+    <div class="row">
+        <h2>{{status ? "My " + status + " posts" : "My Posts" }}</h2>
+        <a href="javascript:void(0)" routerLink="/{{routes.createPost}}" class="ml-auto">Create New Post</a>
+        <select (change)="filterByStatus($event.currentTarget.value)" class="form-control">
+            <option value="{{null}}">None</option>
+            <option value="0">In Progress</option>
+            <option value="1">Finalized</option>
+            <option value="10">Approved</option>
+            <option value="11">Disapproved</option>
+        </select>
+    </div>
+    <app-post-list-template [postListModel]="postPreviews"></app-post-list-template>
+</div>

@@ -1,0 +1,23 @@
+<table class="table table-stripped">
+    <thead>
+    <tr>
+        <th scope="col">Avatar</th>
+        <th scope="col">Display Name</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="searchModel.userInfos.length">
+    <tr *ngFor="let user of searchModel.userInfos">
+        <th scope="row">
+            <img src="{{user.avatarUrl}}" alt="avatar" style="max-height: 75px">
+        </th>
+        <td>{{user.displayName}}</td>
+        <td><a href="{{routes.buildUrl(routes.userProfile, user.id)}}">Profile</a></td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="!searchModel.userInfos.length">
+    <tr>
+        <td colspan="3" class="text-center"><span>No users found</span></td>
+    </tr>
+    </tbody>
+</table>

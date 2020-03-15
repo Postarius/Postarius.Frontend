@@ -1,0 +1,16 @@
+<ng-sidebar-container style="height: 100vh">
+    <ng-sidebar [(opened)]="opened" class="bg-dark">
+        <app-side-manu [toggleSidebar]="toggleSidebar">
+        </app-side-manu>
+    </ng-sidebar>
+
+    <div ng-sidebar-content>
+        <app-nav-menu></app-nav-menu>
+        <div class="container">
+            <button class="navbar-toggler" (click)="toggleSidebar()">
+                <span class="dark-teal-text"><i class="fas fa-bars fa-1x"></i></span>
+            </button>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</ng-sidebar-container>

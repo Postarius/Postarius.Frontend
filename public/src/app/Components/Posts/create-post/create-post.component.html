@@ -1,0 +1,19 @@
+<h2>Create Post</h2>
+<form *ngIf="!loading" [formGroup]="formGroup">
+    <fieldset class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" class="form-control" formControlName="title">
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" rows="10" class="form-control" formControlName="description"></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+        <app-multi-image-upload></app-multi-image-upload>
+    </fieldset>
+    <fieldset style="float: right" *ngIf="!imageUploader?.anyNotUploadedImage">
+        <button class="btn btn-primary" (click)="save()">Save</button>
+        <button class="btn btn-primary ml-4" (click)="saveAndFinalize()">Save and Finalize</button>
+    </fieldset>
+</form>
+<app-loading [loading]="loading"></app-loading>

@@ -1,0 +1,6 @@
+<div class="flex-column">
+    <h2>{{postDetailsModel.title}}</h2>
+    <div>{{postDetailsModel.description}}</div>
+    <img *ngFor="let image of postDetailsModel.imageUrls" src="{{image}}" alt="image" class="mx-auto d-block">
+    <button class="btn btn-primary float-right" routerLink="/{{routes.myPosts}}">Back to List</button>
+</div>

@@ -1,0 +1,9 @@
+<h4>Followers of {{currentUserLogin}}</h4>
+<app-loading [loading]="loading"></app-loading>
+<div *ngIf="!loading">
+    <div *ngIf="followeInfos.length > 0">
+    </div>
+    <div *ngIf="followeInfos.length <= 0">
+        <p>You currently have no followers.</p>
+    </div>
+</div>

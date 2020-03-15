@@ -1,0 +1,4 @@
+<app-loading [loading]="loading"></app-loading>
+<div *ngIf="!loading">
+    <app-post-details-template [postDetailsModel]="postDetails"></app-post-details-template>
+</div>
