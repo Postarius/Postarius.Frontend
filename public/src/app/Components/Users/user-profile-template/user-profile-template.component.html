@@ -26,7 +26,7 @@
 <h3>Followers:</h3>
 <div class="row">
     <div *ngFor="let follower of userProfileData.followers" class="card">
-        <img src="{{follower.avatarUrl}}" alt="followerAvatar">
+        <img src="{{follower.avatarUrl}}" style="width: 200px" alt="followerAvatar">
         <div class="card-body">
             <h5 class="card-title">{{follower.displayName}}</h5>
             <p class="card-text">

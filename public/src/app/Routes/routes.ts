@@ -2,6 +2,7 @@ const Routes = {
     home : '',
     userProfile: 'users/profile/:id',
     login: 'login',
+    register: 'register',
     myProfile: 'users/me',
     followers: 'users/followers',
     thirdPartyAuth: 'thirdPartyAuth',
@@ -10,6 +11,8 @@ const Routes = {
     createPost: 'posts/create',
     uploadImage: 'images/upload',
     postDetails: 'posts/details/:id',
+    gallery: 'gallery',
+    galleryDetails: 'gallery/details/:id',
     buildUrl(route: string, ...params: (string | number)[]) {
         const routeParamPlaceholders = route.split('/').filter(p => p.startsWith(':'));
 

@@ -1,0 +1,23 @@
+<table class="table table-stripped">
+    <thead>
+    <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Display Name</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="posts.length">
+    <tr *ngFor="let post of posts">
+        <th scope="row">
+            <img src="{{post.primaryImageUrl}}" alt="avatar" style="max-height: 75px">
+        </th>
+        <td>{{post.title}}</td>
+        <td><a href="{{routes.buildUrl(routes.galleryDetails, post.id)}}">View</a></td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="!posts.length">
+    <tr>
+        <td colspan="3" class="text-center"><span>No posts</span></td>
+    </tr>
+    </tbody>
+</table>

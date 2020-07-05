@@ -1,0 +1,44 @@
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+        <h4 class="card-header">Register in WebProgramming Coursework</h4>
+        <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="login">Username</label>
+                    <input id="login" type="text" formControlName="login" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.login?.errors }" />
+                    <div *ngIf="submitted && f.login?.errors" class="invalid-feedback">
+                        <div *ngIf="f.login?.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="displayName">Display name</label>
+                    <input id="displayName" type="text" formControlName="displayName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.displayName?.errors }" />
+                    <div *ngIf="submitted && f.displayName?.errors" class="invalid-feedback">
+                        <div *ngIf="f.displayName?.errors.required">Display name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email?.errors }" />
+                    <div *ngIf="submitted && f.email?.errors" class="invalid-feedback">
+                        <div *ngIf="f.email?.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.pattern" class="text-danger">Please provide a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password?.errors }" />
+                    <div *ngIf="submitted && f.password?.errors" class="invalid-feedback">
+                        <div *ngIf="f.password?.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Register
+                </button>
+                <p class="mt-3 mb-0">Have already got an account? <span style="cursor: pointer" routerLink="/{{routes.login}}">Click here to login.</span></p>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div>

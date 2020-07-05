@@ -9,6 +9,7 @@ export const routes = {
     editUserProfile: "/users/edit/:id",
     createUser: "/users/create",
 
+    finalizedPosts: "/finalizedPosts",
     postDetails: "/posts/details/:id"
 };
 

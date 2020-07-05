@@ -2,14 +2,22 @@ import React, {useState} from "react";
 import {Button, Form, FormGroup, Input, Label} from "reactstrap";
 import { toast } from 'react-toastify';
 import SingleImageUploadComponent from "../ImageUploading/SingleImageUploadComponent";
+import axios from "../../Api/axios";
+import { useHistory } from "react-router-dom";
+import {routes} from "../../Routes/Routes";
 
 const CreateUserComponent = () => {
     const [state, setState] = useState({} as any);
+    const history = useHistory();
+
     const onFormSubmit = () => {
-        console.log(state);
-        toast.success("Success!", {
-            position: toast.POSITION.TOP_RIGHT
-        });
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/create`, {...state})
+            .then(() => {
+                history.push(routes.userList)
+                toast.success("Success!", {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            });
     };
 
     const onImageUploaded = (url: string) => {

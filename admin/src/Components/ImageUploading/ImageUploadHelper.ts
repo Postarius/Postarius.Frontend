@@ -6,7 +6,7 @@ export interface IImageUploadResult {
 }
 
 interface IImageModel {
-    url: string;
+    rawUrl: string;
 }
 
 const uploadImage = (formData: FormData, config: any, callback: (succeeded: boolean, result: any) => void) => {

@@ -8,8 +8,12 @@
                 <a href="javascript:void(0)" routerLink="/{{routes.myProfile}}" class="nav-link">My Profile</a>
             </li>
             <li class="nav-item">
+                <a href="javascript:void(0)" routerLink="/{{routes.gallery}}" class="nav-link" target="_blank">Gallery</a>
+            </li>
+            <li class="nav-item">
                 <a href="javascript:void(0)" (click)="logout()" class="nav-link">Logout</a>
             </li>
+            <li class="nav-item"><p class="nav-link">{{loggedIn ? "Logged in as " + loggedInAs : "Not logged in"}}</p></li>
         </ul>
     </div>
 </nav>

@@ -12,6 +12,8 @@ import {PostListModel, PostStatus} from '../Models/Posts/PostListModel';
 import {PostDetailsModel} from '../Models/Posts/PostDetailsModel';
 import {ImageUploadModel} from '../Models/Images/ImageUploadModel';
 import {PostCreateModel} from '../Models/Posts/PostCreateModel';
+import {GalleryListModel} from '../Models/Gallery/GalleryListModel';
+import {GalleryDetailsModel} from '../Models/Gallery/GalleryDetailsModel';
 
 interface ILoginModel {
     token: string;
@@ -26,6 +28,13 @@ interface IUser {
 
 interface IFollowersModel {
     followers: UserPreviewModel[];
+}
+
+interface IRegisterModel {
+    login: string;
+    email: string;
+    displayName: string;
+    password: string;
 }
 
 @Injectable({
@@ -50,6 +59,9 @@ export class ApiService {
                 return res;
             }));
     }
+    public register(model: IRegisterModel): Observable<any> {
+        return this.http.post(`${environment.backendUrl}/api/users/register`, model);
+    }
     public check(): Observable<any> {
         return this.http.get(`${environment.backendUrl}/api/authorize/check`);
     }
@@ -68,7 +80,7 @@ export class ApiService {
         return this.http.get<UserProfileModel>(`${environment.backendUrl}/api/users/myProfile`);
     }
     public getFollowers(): Observable<IFollowersModel> {
-        return this.http.get<IFollowersModel>(`${environment.backendUrl}/api/users/profile/followers`);
+        return this.http.get<IFollowersModel>(`${environment.backendUrl}/api/users/followers`);
     }
     public alreadyFollowing(id: number): Observable<boolean> {
         const queryParams = new HttpParams().append('userId', id.toString());
@@ -120,5 +132,11 @@ export class ApiService {
         }
 
         return this.http.get<SearchModel>(`${environment.backendUrl}/api/users/list`,  { params : query });
+    }
+    public getGalleryPosts(): Observable<GalleryListModel> {
+        return this.http.get<GalleryListModel>(`${environment.backendUrl}/api/gallery/list`);
+    }
+    public getGalleryDetails(id: number): Observable<GalleryDetailsModel> {
+        return this.http.get<GalleryDetailsModel>(`${environment.backendUrl}/api/gallery/details/${id}`);
     }
 }

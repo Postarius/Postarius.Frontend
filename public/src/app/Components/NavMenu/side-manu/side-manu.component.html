@@ -1,5 +1,8 @@
 <ul class="nav flex-column bg-dark" style="z-index: 200; width: 200px; height: 100vh">
     <h2 class="d-inline-block nav-link" routerLink="{{routes.home}}" (click)="toggleSidebar()">a</h2>
+    <button class="navbar-toggler" (click)="toggleSidebar()">
+        <span class="dark-teal-text"><i class="fas fa-bars fa-1x"></i></span>
+    </button>
     <li class="nav-item">
         <a href="javascript:void(0)" routerLink="/{{routes.searchUsers}}" class="nav-link" (click)="toggleSidebar()">Search Users</a>
     </li>

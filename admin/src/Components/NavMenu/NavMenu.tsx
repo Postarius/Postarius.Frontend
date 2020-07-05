@@ -45,6 +45,9 @@ export const NavMenu : React.FC = () => {
                                 <NavLink className="text-dark" tag={Link} to={routes.createUser}>Create user</NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink className="text-dark" tag={Link} to={routes.finalizedPosts}>Finalized posts</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink className="text-dark" onClick={onGoToPublicClicked}>Go to Public page</NavLink>
                             </NavItem>
                         </ul>

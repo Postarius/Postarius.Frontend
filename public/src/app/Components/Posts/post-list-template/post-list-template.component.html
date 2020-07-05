@@ -2,11 +2,11 @@
     <h2>No posts yet.</h2>
     <p>You can create your first post <a href="javascript:void(0)" routerLink="/{{routes.createPost}}">here</a>.</p>
 </div>
-<div *ngFor="let post of postListModel.posts" class="card">
+<div *ngFor="let post of postListModel.posts" class="card my-2">
     <div class="card-header">{{post.title}}</div>
     <div class="card-body row">
-        <img src="{{post.primaryImageUrl}}" alt="primaryImage" style="max-height: 150px">
-        <div class="d-inline" style="height: 100%">{{post.description}}</div>
+        <img src="{{post.primaryImageUrl}}" alt="primaryImage" style="max-height: 150px" class="mr-4">
+        <div class="d-inline" style="height: 100%">Description: {{post.description}}</div>
         <hr/>
         <a href="javascript:void(0)" routerLink="/{{routes.buildUrl(routes.postDetails, post.id)}}">View</a>
     </div>

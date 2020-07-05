@@ -1,0 +1,13 @@
+<div class="flex-column">
+    <div class="content my-2">
+        <h2>{{detailsModel.title}}</h2>
+        <div>
+            <p>Author: {{detailsModel.author.displayName}}</p>
+            <p>Followers: {{detailsModel.author.followerCount}}</p>
+            <a href="javascript:void(0)" routerLink="/{{routes.buildUrl(routes.userProfile, detailsModel.author.id)}}">Author profile</a>
+        </div>
+        <div>{{detailsModel.description}}</div>
+        <img *ngFor="let image of detailsModel.imageUrls" src="{{image}}" alt="image" class="mx-auto d-block">
+    </div>
+    <button class="btn btn-primary float-right" routerLink="/{{routes.gallery}}">Back to List</button>
+</div>

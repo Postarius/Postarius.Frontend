@@ -25,9 +25,7 @@ const PostDetailsComponent = () => {
     });
     return (
         <div>
-            {
-                loaded ? <PostDetailsTemplateComponent postDetailsModel={postDetails}/> : <p>Loading...</p>
-            }
+            {loaded ? <PostDetailsTemplateComponent postDetailsModel={postDetails}/> : <p>Loading...</p>}
         </div>
     )
 };

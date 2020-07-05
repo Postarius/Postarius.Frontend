@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes } from '../../../Routes/routes';
 import {ApiService} from '../../../Api/api.service';
+import {AuthService} from '../../../Api/auth.service';
 
 @Component({
     selector: 'app-nav-menu',
@@ -9,7 +10,15 @@ import {ApiService} from '../../../Api/api.service';
 })
 export class NavMenuComponent implements OnInit {
     public routes = Routes;
-    constructor(private api: ApiService) { }
+    public loggedIn: boolean;
+    public loggedInAs: string;
+    constructor(private api: ApiService, private auth: AuthService) {
+        this.loggedIn = this.auth.currentUserValue != null;
+        if (this.loggedIn) {
+            console.log(this.auth.currentUserValue);
+            this.loggedInAs = this.auth.currentUserValue.login;
+        }
+    }
 
     ngOnInit(): void {
     }

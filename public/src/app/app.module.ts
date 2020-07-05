@@ -30,6 +30,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import { PostDetailsTemplateComponent } from './Components/Posts/post-details-template/post-details-template.component';
 import { PostDetailsComponent } from './Components/Posts/post-details/post-details.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { GalleryListTemplateComponent } from './Components/Gallery/gallery-list-template/gallery-list-template.component';
+import { GalleryListComponent } from './Components/Gallery/gallery-list/gallery-list.component';
+import { GalleryDetailsTemplateComponent } from './Components/Gallery/gallery-details-template/gallery-details-template.component';
+import { GalleryDetailsComponent } from './Components/Gallery/gallery-details/gallery-details.component';
 
 @NgModule({
     declarations: [
@@ -53,7 +58,12 @@ import { PostDetailsComponent } from './Components/Posts/post-details/post-detai
         CreatePostComponent,
         MultiImageUploadComponent,
         PostDetailsTemplateComponent,
-        PostDetailsComponent
+        PostDetailsComponent,
+        RegisterComponent,
+        GalleryListTemplateComponent,
+        GalleryListComponent,
+        GalleryDetailsTemplateComponent,
+        GalleryDetailsComponent
     ],
     imports: [
         BrowserModule,

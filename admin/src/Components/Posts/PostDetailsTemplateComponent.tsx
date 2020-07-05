@@ -13,8 +13,14 @@ const PostDetailsTemplateComponent = (props: IPostDetailsTemplateComponentProps)
     const history = useHistory();
     const approvePost = async (id: number) => {
         await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/posts/approve/${id}`);
-        history.push(routes.home);
+        history.push(routes.finalizedPosts);
     };
+
+    const disapprovePost = async (id: number) => {
+        await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/posts/disapprove/${id}`);
+        history.push(routes.finalizedPosts);
+    };
+
     return (
         <div className="flex-column">
             <h2>{post.title}</h2>
@@ -27,7 +33,7 @@ const PostDetailsTemplateComponent = (props: IPostDetailsTemplateComponentProps)
                 })
             }
             <button className="btn btn-primary float-right" onClick={() => approvePost(post.id)}>Approve</button>
-            <button className="btn btn-danger float-right">Disapprove</button>
+            <button className="btn btn-danger float-right" onClick={() => disapprovePost(post.id)}>Disapprove</button>
             <button className="btn btn-primary float-right">Back To List</button>
         </div>
     )

@@ -62,7 +62,8 @@ const SingleImageUploadComponent = (props: ISingleImageUploadComponentProps) => 
         const onUploadFinished = (succeeded: boolean, result: IImageUploadResult) => {
             if (succeeded) {
                 if (succeeded && props.onImageUploaded) {
-                    props.onImageUploaded(result.images[0].url);
+                    console.log(result);
+                    props.onImageUploaded(result.images[0].rawUrl);
                 }
             }
 

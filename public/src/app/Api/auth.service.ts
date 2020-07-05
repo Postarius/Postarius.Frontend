@@ -8,7 +8,9 @@ interface IUser {
     id: number;
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthService {
     private currentUserSubject: BehaviorSubject<IUser>;
     public currentUser: Observable<IUser>;
@@ -17,6 +19,6 @@ export class AuthService {
         this.currentUser = this.currentUserSubject.asObservable();
     }
     public get currentUserValue(): IUser {
-        return this.currentUserSubject.value;
+        return this.currentUserSubject?.value;
     }
 }

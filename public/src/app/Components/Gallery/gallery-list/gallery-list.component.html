@@ -1,0 +1,5 @@
+<div class="container">
+    <h1>Post Gallery</h1>
+    <app-gallery-list-template *ngIf="!loading" [posts]="postModel.posts"></app-gallery-list-template>
+    <app-loading [loading]="loading"></app-loading>
+</div>

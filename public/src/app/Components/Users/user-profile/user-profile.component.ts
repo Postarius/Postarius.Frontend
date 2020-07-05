@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserProfileModel} from '../../../Models/Users/UserProfileModel';
 import {ApiService} from '../../../Api/api.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from '../../../Api/auth.service';
+import {Routes} from '../../../Routes/routes';
 
 @Component({
     selector: 'app-user-profile',
@@ -12,9 +14,16 @@ export class UserProfileComponent implements OnInit {
     loading: boolean;
     userProfileData: UserProfileModel;
     constructor(private api: ApiService,
-                private route: ActivatedRoute) { }
+                private route: ActivatedRoute,
+                private auth: AuthService,
+                private router: Router) { }
 
     ngOnInit() {
+        console.log(this.auth.currentUserValue.id);
+        console.log(this.route.snapshot.params.id);
+        if (this.auth.currentUserValue.id == this.route.snapshot.params.id) {
+            this.router.navigate([Routes.myProfile]);
+        }
         this.loadUserProfileData();
     }
     async loadUserProfileData() {

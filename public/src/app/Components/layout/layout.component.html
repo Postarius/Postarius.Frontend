@@ -6,10 +6,10 @@
 
     <div ng-sidebar-content>
         <app-nav-menu></app-nav-menu>
+        <button class="navbar-toggler" (click)="toggleSidebar()">
+            <span class="dark-teal-text"><i class="fas fa-bars fa-1x"></i></span>
+        </button>
         <div class="container">
-            <button class="navbar-toggler" (click)="toggleSidebar()">
-                <span class="dark-teal-text"><i class="fas fa-bars fa-1x"></i></span>
-            </button>
             <router-outlet></router-outlet>
         </div>
     </div>

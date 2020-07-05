@@ -15,6 +15,9 @@ import {MyPostsComponent} from './Components/Posts/my-posts/my-posts.component';
 import {CreatePostComponent} from './Components/Posts/create-post/create-post.component';
 import {MultiImageUploadComponent} from './Components/Images/multi-image-upload/multi-image-upload.component';
 import {PostDetailsComponent} from './Components/Posts/post-details/post-details.component';
+import {RegisterComponent} from './Components/register/register.component';
+import {GalleryListComponent} from './Components/Gallery/gallery-list/gallery-list.component';
+import {GalleryDetailsComponent} from './Components/Gallery/gallery-details/gallery-details.component';
 
 const layoutRoutes: Routes = [
     {path: routeList.home, pathMatch: 'full', component: HomeComponent},
@@ -25,15 +28,18 @@ const layoutRoutes: Routes = [
     {path: routeList.myPosts, pathMatch: 'full', component: MyPostsComponent},
     {path: routeList.createPost, pathMatch: 'full', component: CreatePostComponent},
     {path: routeList.uploadImage, pathMatch: 'full', component: MultiImageUploadComponent},
-    {path: routeList.postDetails, pathMatch: 'full', component: PostDetailsComponent}
+    {path: routeList.postDetails, pathMatch: 'full', component: PostDetailsComponent},
+    {path: routeList.gallery, pathMatch: 'full', component: GalleryListComponent},
+    {path: routeList.galleryDetails, pathMatch: 'full', component: GalleryDetailsComponent}
 ];
 
 const routes: Routes = [
     {path: '', component: LayoutComponent, children: layoutRoutes, canActivate: [AuthorizeGuard]},
     {path: '', pathMatch: 'full', component: LayoutComponent},
-    {path: routeList.login, pathMatch: 'full', component: BasicLayoutComponent, children: [
+    {path: routeList.login, component: BasicLayoutComponent, children: [
             {path: '', component: LoginComponent},
-            {path: routeList.thirdPartyAuth, component: ThirdPartyTokenAuthComponent}
+            {path: routeList.thirdPartyAuth, component: ThirdPartyTokenAuthComponent},
+            {path: routeList.register, component: RegisterComponent}
         ]
     }
 ];
